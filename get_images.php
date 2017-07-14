@@ -10,7 +10,7 @@ function get_images($path){
 				get_images($path.'/'.$value);
 			}else{
 				$format = pathinfo($path.'/'.$value,PATHINFO_EXTENSION);
-				if(in_array($format,['jpg','png','png']))
+				if(in_array($format,['jpg','png','gif','jpeg','swf']))
 					echo "<img width = 200px height = 200px src = '$path/$value'>";
 			}
 
