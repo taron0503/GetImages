@@ -3,15 +3,15 @@
 function get_images($path){
 	$files = scandir($path);
 	
-	foreach ($files as $key => $value) {
+	foreach ($files as $name) {
 		
-		if($value != '.' && $value != '..'){
-			if(is_dir($path.'/'.$value)){
-				get_images($path.'/'.$value);
+		if($name != '.' && $name != '..'){
+			if(is_dir($path.'/'.$name)){
+				get_images($path.'/'.$name);
 			}else{
-				$format = pathinfo($path.'/'.$value,PATHINFO_EXTENSION);
+				$format = pathinfo($path.'/'.$name,PATHINFO_EXTENSION);
 				if(in_array($format,['jpg','png','gif','jpeg','swf']))
-					echo "<img width = 200px height = 200px src = '$path/$value'>";
+					echo "<img width = 200px height = 200px src = '$path/$name'>";
 			}
 
 		}
